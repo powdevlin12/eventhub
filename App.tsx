@@ -5,17 +5,17 @@
  * @format
  */
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {NativeModules, useColorScheme} from 'react-native';
 import './gesture-handler';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import MainNavigator from './src/navigators/MainNavigator';
+import {SplashScreen} from './src/screens';
+import AuthNavigator from './src/navigators/AuthNavigator';
+import {NavigationContainer} from '@react-navigation/native';
+
+const {HelloYt} = NativeModules;
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -24,16 +24,33 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <View>
-        <Text>Eventhub</Text>
-      </View>
-    </SafeAreaView>
+  console.log('Hehehe');
+
+  const handleOnPress = () => {
+    HelloYt.sayHello('dat', (err: any, message: any) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log('message ', message);
+    });
+  };
+
+  const [isShowSplash, setIsShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsShowSplash(false);
+    }, 1500);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return isShowSplash ? (
+    <SplashScreen />
+  ) : (
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
   );
 }
 
