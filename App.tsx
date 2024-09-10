@@ -6,7 +6,7 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {NativeModules, useColorScheme} from 'react-native';
+import {NativeModules, StatusBar, useColorScheme, View} from 'react-native';
 import './gesture-handler';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -40,17 +40,26 @@ function App(): JSX.Element {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsShowSplash(false);
-    }, 1500);
+    }, 2000);
 
     return () => clearTimeout(timeout);
   }, []);
 
-  return isShowSplash ? (
-    <SplashScreen />
-  ) : (
-    <NavigationContainer>
-      <AuthNavigator />
-    </NavigationContainer>
+  return (
+    <View style={{flex: 1}}>
+      <StatusBar
+        barStyle={'dark-content'}
+        translucent
+        backgroundColor={'transparent'}
+      />
+      {isShowSplash ? (
+        <SplashScreen />
+      ) : (
+        <NavigationContainer>
+          <AuthNavigator />
+        </NavigationContainer>
+      )}
+    </View>
   );
 }
 
