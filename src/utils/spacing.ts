@@ -1,3 +1,6 @@
-export const spacing = (space: number): number => {
-  return space * 4;
+import ScaleSize from './scale';
+
+const Spacing = (number: number) => {
+  return number * ScaleSize(4);
 };
+export default Spacing;

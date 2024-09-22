@@ -1,6 +1,7 @@
-import {ViewStyle} from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 import {appColors} from '../constants/appColors';
-import {spacing} from '../utils/spacing';
+import {fontFamilies} from '../constants/fontFamily';
+import {Spacing} from '../utils';
 
 const containerCommon: ViewStyle = {
   flex: 1,
@@ -8,13 +9,20 @@ const containerCommon: ViewStyle = {
 };
 
 const paddingCommon: ViewStyle = {
-  paddingHorizontal: spacing(4),
-  paddingTop: spacing(3),
+  paddingHorizontal: Spacing(4),
+  paddingTop: Spacing(3),
+};
+
+const textCommon: TextStyle = {
+  fontFamily: fontFamilies.regular,
+  fontSize: 14,
+  color: appColors.text,
 };
 
 const gStyle = {
   containerCommon,
   paddingCommon,
+  textCommon,
 };
 
 export {gStyle};

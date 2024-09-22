@@ -5,8 +5,8 @@ import {Row, TextComponent} from '../../components/share';
 import {appColors} from '../../constants/appColors';
 import {appInfo} from '../../constants/appInfos';
 import {gStyle} from '../../styles/globalStyles';
-import {spacing} from '../../utils/spacing';
 import {useNavigation} from '@react-navigation/native';
+import {Spacing} from '../../utils';
 
 const OnboardingScreen = () => {
   const [index, setIndex] = useState(0);
@@ -93,10 +93,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btnNavigate: {
-    paddingHorizontal: spacing(10),
-    paddingVertical: spacing(2),
+    paddingHorizontal: Spacing(10),
+    paddingVertical: Spacing(2),
     position: 'absolute',
-    bottom: spacing(4),
+    bottom: Spacing(4),
     left: 0,
     right: 0,
   },

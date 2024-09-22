@@ -1,4 +1,4 @@
-import LoginScreen from './auth/LoginScreen';
+import LoginScreen from './auth/login';
 import OnboardingScreen from './auth/OnboardingScreen';
 import HomeScreen from './home/HomeScreen';
 import SplashScreen from './SplashScreen';
