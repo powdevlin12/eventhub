@@ -4,4 +4,6 @@ export const appColors = {
   text: '#120D26',
   gray: '#3807A7A',
   grayStart: '#DADADA',
+  errorStart: '#E94E4E',
+  errorEnd: '#DF1616',
 };

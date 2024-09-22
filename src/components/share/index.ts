@@ -1,5 +1,6 @@
+import ButtonComponent from './button/ButtonComponent';
 import Row from './Row';
 import ScreenComponent from './ScreenComponent';
 import TextComponent from './TextComponent';
 
-export {ScreenComponent, TextComponent, Row};
+export {ButtonComponent, ScreenComponent, TextComponent, Row};

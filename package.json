@@ -11,6 +11,7 @@
     "codePush:android": "appcenter codepush release-react -a trandat2k1/EventHub-Android -d Production"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/drawer": "^6.7.2",
@@ -20,12 +21,16 @@
     "appcenter-analytics": "^5.0.1",
     "appcenter-crashes": "^5.0.1",
     "react": "18.2.0",
+    "react-hook-form": "^7.53.0",
     "react-native": "0.71.8",
     "react-native-gesture-handler": "^2.18.1",
     "react-native-reanimated": "^2.17.0",
     "react-native-safe-area-context": "^4.10.9",
     "react-native-screens": "^3.34.0",
-    "react-native-swiper": "^1.6.0"
+    "react-native-svg": "^15.7.1",
+    "react-native-svg-transformer": "^1.5.0",
+    "react-native-swiper": "^1.6.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
