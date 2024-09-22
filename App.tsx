@@ -15,16 +15,20 @@ import {
 } from 'react-native';
 import './gesture-handler';
 
+import {NavigationContainer} from '@react-navigation/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {ACCESS_TOKEN} from './src/constants/appKey';
+import AuthNavigator from './src/navigators/AuthNavigator';
 import MainNavigator from './src/navigators/MainNavigator';
 import {SplashScreen} from './src/screens';
-import AuthNavigator from './src/navigators/AuthNavigator';
-import {NavigationContainer} from '@react-navigation/native';
-import HomeNavigator from './src/navigators/HomeNavigator';
 import {getDataAsyncStorage} from './src/utils/async-storage';
-import {ACCESS_TOKEN} from './src/constants/appKey';
+import codePush from 'react-native-code-push';
 
 const {HelloYt} = NativeModules;
+
+const codePushOptions = {
+  checkFrenquency: codePush.CheckFrequency.ON_APP_START,
+};
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -67,6 +71,21 @@ function App(): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // ** handle code push
+
+  useEffect(() => {
+    codePush.sync({
+      updateDialog: {
+        title: 'New version',
+        optionalIgnoreButtonLabel: 'Cancel',
+        optionalInstallButtonLabel: 'Install',
+        optionalUpdateMessage: 'New version available',
+      },
+      installMode: codePush.InstallMode.IMMEDIATE,
+    });
+  }, []);
+  // ** end handle code push
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar
@@ -86,4 +105,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+export default codePush(codePushOptions)(App);
