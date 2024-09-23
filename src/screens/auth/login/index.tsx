@@ -17,7 +17,7 @@ const WIDTH_BUTTON = WIDTH * 0.75;
 
 const LoginScreen = () => {
   const {
-    actions: {handleToggleShowPassword, onSubmit},
+    actions: {handleToggleShowPassword, onSubmit, handleNavigationRegister},
     values: {isShowPassword},
     form: {control, handleSubmit},
   } = useLoginController();
@@ -114,20 +114,13 @@ const LoginScreen = () => {
             fontfamily={fontFamilies.regular}
             size={15}
           />
-          <Row justifyContent="center">
+          <Row justifyContent="center" onPress={handleNavigationRegister}>
             <TextComponent size={14}>Don’t have an account? </TextComponent>
             <TextComponent size={14} color={appColors.primary}>
               Sign up
             </TextComponent>
           </Row>
         </View>
-        {/* <Button
-          title="Login"
-          onPress={async () =>
-            await storeDataAsyncStorage(ACCESS_TOKEN, 'sadasdsad')
-          }
-          onPress={handleSubmit(onSubmit)}
-        /> */}
       </View>
     </ScreenComponent>
   );

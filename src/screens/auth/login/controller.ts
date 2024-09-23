@@ -1,7 +1,11 @@
-import {useState} from 'react';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useNavigation} from '@react-navigation/native';
+import type {StackNavigationProp} from '@react-navigation/stack';
 import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
-import {yupResolver} from '@hookform/resolvers/yup';
+import {SCREEN_NAME} from '../../../constants/screen-name';
+import useToggleShowPassword from '../../../hooks/useToggleShowPassword';
+import {AuthNavigationParamsList} from '../../../navigators/type';
 
 export const schemaLogin = yup.object({
   username: yup.string().required('Vui lòng nhập email của bạn'),
@@ -10,12 +14,14 @@ export const schemaLogin = yup.object({
 
 export type TFormLogin = yup.InferType<typeof schemaLogin>;
 
-const useLoginController = () => {
-  const [isShowPassword, setIsShowPassword] = useState(false);
+export type LoginNavigationProps = StackNavigationProp<
+  AuthNavigationParamsList,
+  'LoginScreen'
+>;
 
-  const handleToggleShowPassword = () => {
-    setIsShowPassword(prev => !prev);
-  };
+const useLoginController = () => {
+  const navigation = useNavigation<LoginNavigationProps>();
+  const {handleToggleShowPassword, isShowPassword} = useToggleShowPassword();
 
   const formLogin = useForm<TFormLogin>({
     resolver: yupResolver(schemaLogin) as any,
@@ -31,6 +37,10 @@ const useLoginController = () => {
     console.log(data);
   };
 
+  const handleNavigationRegister = () => {
+    navigation.navigate(SCREEN_NAME.REGISTER_SCREEN);
+  };
+
   return {
     values: {
       isShowPassword,
@@ -38,6 +48,7 @@ const useLoginController = () => {
     actions: {
       handleToggleShowPassword,
       onSubmit,
+      handleNavigationRegister,
     },
     form: formLogin,
   };

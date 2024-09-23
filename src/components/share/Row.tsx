@@ -26,7 +26,9 @@ const Row = ({
   return !onPress ? (
     <View style={[styles1.container, styles ?? {}]}>{children}</View>
   ) : (
-    <TouchableOpacity onPress={onPress} style={styles1.container}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles1.container, styles ?? {}]}>
       {children}
     </TouchableOpacity>
   );

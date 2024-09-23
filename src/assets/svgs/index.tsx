@@ -6,6 +6,9 @@ import Password from './password.svg';
 import ShapeRight from './shape-right.svg';
 import Google from './google.svg';
 import Facebook from './facebook.svg';
+import Profile from './profile.svg';
+import Back from './back.svg';
+
 import React from 'react';
 
 export const IconName = {
@@ -15,6 +18,8 @@ export const IconName = {
   ShapeRight,
   Google,
   Facebook,
+  Profile,
+  Back,
 };
 
 export type SvgIconNameProps = keyof typeof IconName;
