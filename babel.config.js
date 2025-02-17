@@ -3,9 +3,11 @@ module.exports = {
   plugins: [
     [
       'react-native-reanimated/plugin',
+
       {
         relativeSourceLocation: true,
       },
     ],
+    ['@babel/plugin-transform-private-methods', {loose: true}],
   ],
 };

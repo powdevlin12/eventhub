@@ -1,4 +1,10 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import Icon, {SvgIconNameProps} from '../../../assets/svgs';
 import TextComponent, {TextComponentProps} from '../TextComponent';
@@ -22,6 +28,7 @@ type ButtonComponentProps = {
   };
   width?: number;
   onPress: () => void;
+  loading?: boolean;
 } & TextComponentProps;
 
 const ButtonComponent = ({
@@ -31,6 +38,7 @@ const ButtonComponent = ({
   type = 'inside',
   width,
   onPress,
+  loading = false,
   ...rest
 }: ButtonComponentProps) => {
   const styles = StyleSheet.create({
@@ -66,11 +74,15 @@ const ButtonComponent = ({
             <Icon name={prefix.iconName} size={prefix?.size ?? 20} />
           </TouchableOpacity>
         )}
-        <TextComponent
-          color={type === 'inside' ? appColors.white : appColors.text}
-          {...rest}>
-          {label}
-        </TextComponent>
+        {!loading ? (
+          <TextComponent
+            color={type === 'inside' ? appColors.white : appColors.text}
+            {...rest}>
+            {label}
+          </TextComponent>
+        ) : (
+          <ActivityIndicator size={'large'} color={'white'} />
+        )}
         {suffix && (
           <TouchableOpacity style={styles.suffix} onPress={suffix?.onPress}>
             <Icon name={suffix.iconName} size={suffix?.size ?? 20} />

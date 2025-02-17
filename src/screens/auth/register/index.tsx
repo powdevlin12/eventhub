@@ -7,19 +7,19 @@ import {
   TextComponent,
 } from '../../../components/share';
 import InputComponent from '../../../components/share/input/InputComponent';
-import {fontFamilies} from '../../../constants/fontFamily';
-import {Spacing} from '../../../utils';
-import useRegisterController from './controller';
 import {appColors} from '../../../constants/appColors';
 import {WIDTH} from '../../../constants/dimensions';
+import {fontFamilies} from '../../../constants/fontFamily';
 import {SCREEN_NAME} from '../../../constants/screen-name';
+import {Spacing} from '../../../utils';
+import {useRegisterController} from './controller';
 
 const WIDTH_BUTTON = WIDTH * 0.75;
 
 const Register = () => {
   const {
     form: {control, handleSubmit},
-    values: {isShowPassword},
+    values: {isShowPassword, isPending},
     actions: {
       handleToggleShowPassword,
       onError,
@@ -88,7 +88,7 @@ const Register = () => {
           name="confirmPasword"
         />
         <ButtonComponent
-          label="SIGN IN"
+          label="SIGN UP"
           onPress={handleSubmit(onSubmit)}
           width={WIDTH_BUTTON}
           suffix={{
@@ -96,6 +96,7 @@ const Register = () => {
             size: 20,
           }}
           fontfamily={fontFamilies.medium}
+          loading={isPending}
         />
         <TextComponent
           color={appColors.gray}

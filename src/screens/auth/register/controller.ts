@@ -1,11 +1,14 @@
 import {yupResolver} from '@hookform/resolvers/yup';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
-import useToggleShowPassword from '../../../hooks/useToggleShowPassword';
-import {useNavigation} from '@react-navigation/native';
-import {AuthNavigationParamsList} from '../../../navigators/type';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {API_ROUTE} from '../../../api/client';
+import {usePost} from '../../../api/hooks';
+import {TRegisterResponse} from '../../../api/types';
 import {SCREEN_NAME} from '../../../constants/screen-name';
+import useToggleShowPassword from '../../../hooks/useToggleShowPassword';
+import {AuthNavigationParamsList} from '../../../navigators/type';
 
 export const schemaRegister = yup.object({
   fullname: yup.string().required('Vui lòng nhập tên đầy đủ của bạn'),
@@ -26,7 +29,7 @@ export type LoginNavigationProps = StackNavigationProp<
   AuthNavigationParamsList,
   'RegisterScreen'
 >;
-const useRegisterController = () => {
+export const useRegisterController = () => {
   const formRegister = useForm<TFormRegister>({
     resolver: yupResolver(schemaRegister) as any,
     defaultValues: {
@@ -39,8 +42,28 @@ const useRegisterController = () => {
 
   const {handleToggleShowPassword, isShowPassword} = useToggleShowPassword();
 
+  const {mutate: mutateRegister, isPending} = usePost<TRegisterResponse>(
+    API_ROUTE.REGISTER,
+  );
+
   const onSubmit = (data: TFormRegister) => {
-    console.log('🚀 ~ onSubmit ~ data:', data);
+    const {confirmPasword, fullname, password, username} = data;
+    mutateRegister(
+      {
+        name: fullname,
+        password,
+        confirm_password: confirmPasword,
+        email: username.toLowerCase(),
+      },
+      {
+        onError(error) {
+          console.log(error.message);
+        },
+        onSuccess(d) {
+          console.log(d);
+        },
+      },
+    );
   };
 
   const onError = (err: any) => {
@@ -52,7 +75,7 @@ const useRegisterController = () => {
   };
 
   return {
-    values: {isShowPassword},
+    values: {isShowPassword, isPending},
     actions: {
       handleToggleShowPassword,
       onSubmit,
@@ -62,5 +85,3 @@ const useRegisterController = () => {
     form: formRegister,
   };
 };
-
-export default useRegisterController;

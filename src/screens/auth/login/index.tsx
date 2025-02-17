@@ -18,7 +18,7 @@ const WIDTH_BUTTON = WIDTH * 0.75;
 const LoginScreen = () => {
   const {
     actions: {handleToggleShowPassword, onSubmit, handleNavigationRegister},
-    values: {isShowPassword},
+    values: {isShowPassword, isPending},
     form: {control, handleSubmit},
   } = useLoginController();
   return (
@@ -81,6 +81,7 @@ const LoginScreen = () => {
               size: 20,
             }}
             fontfamily={fontFamilies.medium}
+            loading={isPending}
           />
           <TextComponent
             color={appColors.gray}

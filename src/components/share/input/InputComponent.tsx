@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E4DFDF',
     borderRadius: Scale(12),
+    height: Scale(56),
   },
   input: {
     flex: 1,

@@ -23,6 +23,8 @@ import MainNavigator from './src/navigators/MainNavigator';
 import {SplashScreen} from './src/screens';
 import {getDataAsyncStorage} from './src/utils/async-storage';
 import codePush from 'react-native-code-push';
+import {QueryClientProvider} from '@tanstack/react-query';
+import {queryClient} from './src/api/hooks';
 
 const {HelloYt} = NativeModules;
 
@@ -68,7 +70,6 @@ function App(): JSX.Element {
 
   useEffect(() => {
     checkLogin();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ** handle code push
@@ -97,9 +98,11 @@ function App(): JSX.Element {
       {isShowSplash ? (
         <SplashScreen />
       ) : (
-        <NavigationContainer>
-          {accessToken ? <MainNavigator /> : <AuthNavigator />}
-        </NavigationContainer>
+        <QueryClientProvider client={queryClient}>
+          <NavigationContainer>
+            {accessToken ? <MainNavigator /> : <AuthNavigator />}
+          </NavigationContainer>
+        </QueryClientProvider>
       )}
     </SafeAreaView>
   );

@@ -6,6 +6,9 @@ import * as yup from 'yup';
 import {SCREEN_NAME} from '../../../constants/screen-name';
 import useToggleShowPassword from '../../../hooks/useToggleShowPassword';
 import {AuthNavigationParamsList} from '../../../navigators/type';
+import {usePost} from '../../../api/hooks';
+import {LoginPost} from '../../../api/types';
+import {API_ROUTE} from '../../../api/client';
 
 export const schemaLogin = yup.object({
   username: yup.string().required('Vui lòng nhập email của bạn'),
@@ -31,10 +34,20 @@ const useLoginController = () => {
     },
   });
 
-  console.log(formLogin.watch());
+  const {mutate: mutateLogin, isPending} = usePost<LoginPost>(API_ROUTE.LOGIN);
 
   const onSubmit = (data: TFormLogin) => {
-    console.log(data);
+    mutateLogin(
+      {email: data.username, password: data.password},
+      {
+        onError(error) {
+          console.log(error.message);
+        },
+        onSuccess(d) {
+          console.log(d);
+        },
+      },
+    );
   };
 
   const handleNavigationRegister = () => {
@@ -44,6 +57,7 @@ const useLoginController = () => {
   return {
     values: {
       isShowPassword,
+      isPending,
     },
     actions: {
       handleToggleShowPassword,
