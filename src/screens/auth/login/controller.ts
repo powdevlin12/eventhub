@@ -29,8 +29,8 @@ const useLoginController = () => {
   const formLogin = useForm<TFormLogin>({
     resolver: yupResolver(schemaLogin) as any,
     defaultValues: {
-      username: '',
-      password: '',
+      username: 'trandat1@gmail.com',
+      password: 'Sgod123@',
     },
   });
 

@@ -25,6 +25,8 @@ import {getDataAsyncStorage} from './src/utils/async-storage';
 import codePush from 'react-native-code-push';
 import {QueryClientProvider} from '@tanstack/react-query';
 import {queryClient} from './src/api/hooks';
+import {Provider} from 'react-redux';
+import {store} from './src/store';
 
 const {HelloYt} = NativeModules;
 
@@ -100,7 +102,9 @@ function App(): JSX.Element {
       ) : (
         <QueryClientProvider client={queryClient}>
           <NavigationContainer>
-            {accessToken ? <MainNavigator /> : <AuthNavigator />}
+            <Provider store={store}>
+              {accessToken ? <MainNavigator /> : <AuthNavigator />}
+            </Provider>
           </NavigationContainer>
         </QueryClientProvider>
       )}
