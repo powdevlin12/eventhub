@@ -1,22 +1,22 @@
 PODS:
-  - appcenter-analytics (5.0.2):
+  - appcenter-analytics (5.0.3):
     - AppCenter/Analytics (~> 5.0)
     - AppCenterReactNativeShared (~> 5.0)
     - React-Core
-  - appcenter-core (5.0.2):
+  - appcenter-core (5.0.3):
     - AppCenterReactNativeShared (~> 5.0)
     - React-Core
-  - appcenter-crashes (5.0.2):
+  - appcenter-crashes (5.0.3):
     - AppCenter/Crashes (~> 5.0)
     - AppCenterReactNativeShared (~> 5.0)
     - React-Core
-  - AppCenter/Analytics (5.0.5):
+  - AppCenter/Analytics (5.0.6):
     - AppCenter/Core
-  - AppCenter/Core (5.0.5)
-  - AppCenter/Crashes (5.0.5):
+  - AppCenter/Core (5.0.6)
+  - AppCenter/Crashes (5.0.6):
     - AppCenter/Core
-  - AppCenterReactNativeShared (5.0.2):
-    - AppCenter/Core (= 5.0.5)
+  - AppCenterReactNativeShared (5.0.3):
+    - AppCenter/Core (= 5.0.6)
   - Base64 (1.1.2)
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
@@ -445,9 +445,9 @@ PODS:
     - React-jsi (= 0.71.8)
     - React-logger (= 0.71.8)
     - React-perflogger (= 0.71.8)
-  - RNCAsyncStorage (2.1.1):
+  - RNCAsyncStorage (2.1.2):
     - React-Core
-  - RNGestureHandler (2.23.1):
+  - RNGestureHandler (2.25.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - RNReanimated (2.17.0):
@@ -477,7 +477,7 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.35.0):
+  - RNScreens (3.37.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
     - React-RCTImage
@@ -677,13 +677,13 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AppCenter: 994875ea7941b9e168babb98299f900a94bcef13
-  appcenter-analytics: 4a40dbbbded6e44856d043296d692e622a73b943
-  appcenter-core: ab7971a7ecbcb28370c997104731a58bdcf27f59
-  appcenter-crashes: 33933f102a38cf93435507ef018f25ff8f2959b8
-  AppCenterReactNativeShared: e6f6bd4d0e055bf1a3d7337edb4993bfce79185b
+  AppCenter: 395cc12b428b8fdf12e9f92294d93a55bac389e4
+  appcenter-analytics: be3e5450628fc70c3c564e1fe69421cc981914c7
+  appcenter-core: 3a17ba4397c5468a9abde4172b8fe701a402ee17
+  appcenter-crashes: 429d03fcff1e7ba546b5a76724a89f3db30a3014
+  AppCenterReactNativeShared: 6de0a156fa7cdf7162f35ae2938fa3eeaed8965a
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
-  boost: 0be925db5504e3c2f2f6310f7ca9595c45d99c28
+  boost: 7dcd2de282d72e344012f7d6564d024930a6a440
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CodePush: 780b28488229317b89691bd88dfcdcfe81a94e63
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
@@ -733,10 +733,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: 43ffd976a25f6057a7cf95ea3648ba4e00287f89
   React-runtimeexecutor: 7c51ae9d4b3e9608a2366e39ccaa606aa551b9ed
   ReactCommon: 275d65c190ade0b51c713c277ba52c9c78b3d914
-  RNCAsyncStorage: af7b591318005069c3795076addc83a4dd5c0a2e
-  RNGestureHandler: b92edffdd61fb7c277ece50711d01614f47410c0
+  RNCAsyncStorage: b9f5f78da5d16a853fe3dc22e8268d932fc45a83
+  RNGestureHandler: c2358951aa4fe5a9ee2085b3c2880c1af98af269
   RNReanimated: f9f8945aad05d259324869fb79ce30b75c6062da
-  RNScreens: a568946532d3cabcb7f46fdc0a8dbada3dd5de44
+  RNScreens: c1a851e518284641160aa5af4894479773a6e719
   RNSVG: 38b927ba26d717c85522fbf9a04b87dcd2d8227a
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   SSZipArchive: c69881e8ac5521f0e622291387add5f60f30f3c4
