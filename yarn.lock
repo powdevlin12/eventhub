@@ -5872,6 +5872,18 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.6"
 
+mobx-react-lite@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-4.1.0.tgz#6a03ed2d94150848213cfebd7d172e123528a972"
+  integrity sha512-QEP10dpHHBeQNv1pks3WnHRCem2Zp636lq54M2nKO2Sarr13pL4u6diQXf65yzXUn0mkk18SyIDCm9UOJYTi1w==
+  dependencies:
+    use-sync-external-store "^1.4.0"
+
+mobx@^6.13.7:
+  version "6.13.7"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.13.7.tgz#70e5dda7a45da947f773b3cd3b065dfe7c8a75de"
+  integrity sha512-aChaVU/DO5aRPmk1GX8L+whocagUUpBQqoPtJk+cm7UOXUk87J4PeWCh6nNmTTIfEhiR9DI/+FnA8dln/hTK7g==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
