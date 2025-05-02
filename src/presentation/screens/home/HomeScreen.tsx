@@ -1,7 +1,7 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {remoteDataAsyncStorage} from '../../utils/async-storage';
-import {ACCESS_TOKEN} from '../../constants/appKey';
+import {remoteDataAsyncStorage} from '../../../common/utils/async-storage';
+import {ACCESS_TOKEN} from '../../../common/constants/appKey';
 
 const HomeScreen = () => {
   return (

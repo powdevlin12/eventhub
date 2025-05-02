@@ -3,12 +3,12 @@ import {useNavigation} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
-import {SCREEN_NAME} from '../../../constants/screen-name';
-import useToggleShowPassword from '../../../hooks/useToggleShowPassword';
+import useToggleShowPassword from '../../../../common/hooks/useToggleShowPassword';
 import {AuthNavigationParamsList} from '../../../navigators/type';
-import {usePost} from '../../../api/hooks';
-import {LoginPost} from '../../../api/types';
-import {API_ROUTE} from '../../../api/client';
+import {usePost} from '../../../../data/api/hooks';
+import {LoginPost} from '../../../../data/api/types';
+import {API_ROUTE} from '../../../../data/api/client';
+import {SCREEN_NAME} from '../../../../common/constants/screen-name';
 
 export const schemaLogin = yup.object({
   username: yup.string().required('Vui lòng nhập email của bạn'),

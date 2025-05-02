@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, TextProps, TextStyle} from 'react-native';
-import {appColors} from '../../constants/appColors';
-import {fontFamilies} from '../../constants/fontFamily';
-import {Scale} from '../../utils';
+import {appColors} from '../../../common/constants/appColors';
+import {fontFamilies} from '../../../common/constants/fontFamily';
+import {Scale} from '../../../common/utils';
 
 export type TextComponentProps = {
   size?: number;

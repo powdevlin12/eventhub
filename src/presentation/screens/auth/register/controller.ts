@@ -3,11 +3,11 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
-import {API_ROUTE} from '../../../api/client';
-import {usePost} from '../../../api/hooks';
-import {TRegisterResponse} from '../../../api/types';
-import {SCREEN_NAME} from '../../../constants/screen-name';
-import useToggleShowPassword from '../../../hooks/useToggleShowPassword';
+import {API_ROUTE} from '../../../../data/api/client';
+import {usePost} from '../../../../data/api/hooks';
+import {TRegisterResponse} from '../../../../data/api/types';
+import {SCREEN_NAME} from '../../../../common/constants/screen-name';
+import useToggleShowPassword from '../../../../common/hooks/useToggleShowPassword';
 import {AuthNavigationParamsList} from '../../../navigators/type';
 
 export const schemaRegister = yup.object({

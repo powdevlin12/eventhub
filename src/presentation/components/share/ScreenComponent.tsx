@@ -1,11 +1,11 @@
 import React, {ReactNode} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {appColors} from '../../constants/appColors';
-import {SCREEN_NAME} from '../../constants/screen-name';
+import {appColors} from '../../../common/constants/appColors';
+import {Spacing} from '../../../common/utils';
+import {useNavigation} from '@react-navigation/native';
+import {SCREEN_NAME} from '../../../common/constants/screen-name';
 import Row from './Row';
 import Icon from '../../assets/svgs';
-import {Spacing} from '../../utils';
-import {useNavigation} from '@react-navigation/native';
 
 type ScreenComponentProps = {
   children: ReactNode;

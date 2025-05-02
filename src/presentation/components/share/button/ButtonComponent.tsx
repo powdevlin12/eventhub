@@ -1,16 +1,10 @@
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
 import React from 'react';
+import {ActivityIndicator, StyleSheet, TouchableOpacity} from 'react-native';
+import {appColors} from '../../../../common/constants/appColors';
+import {Scale, Spacing} from '../../../../common/utils';
 import Icon, {SvgIconNameProps} from '../../../assets/svgs';
-import TextComponent, {TextComponentProps} from '../TextComponent';
 import Row from '../Row';
-import {appColors} from '../../../constants/appColors';
-import {Scale, Spacing} from '../../../utils';
+import TextComponent, {TextComponentProps} from '../TextComponent';
 
 type ButtonComponentProps = {
   type?: 'outline' | 'inside';

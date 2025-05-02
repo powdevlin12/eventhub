@@ -1,7 +1,7 @@
 import {TextStyle, ViewStyle} from 'react-native';
-import {appColors} from '../constants/appColors';
-import {fontFamilies} from '../constants/fontFamily';
-import {Spacing} from '../utils';
+import {appColors} from '../../common/constants/appColors';
+import {fontFamilies} from '../../common/constants/fontFamily';
+import {Spacing} from '../../common/utils';
 
 const containerCommon: ViewStyle = {
   flex: 1,

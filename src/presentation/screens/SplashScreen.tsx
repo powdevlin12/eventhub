@@ -6,8 +6,8 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {appInfo} from '../constants/appInfos';
-import {appColors} from '../constants/appColors';
+import {appInfo} from '../../common/constants/appInfos';
+import {appColors} from '../../common/constants/appColors';
 
 const SplashScreen = () => {
   return (

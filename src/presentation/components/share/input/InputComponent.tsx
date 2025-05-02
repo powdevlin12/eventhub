@@ -8,9 +8,9 @@ import {
   View,
 } from 'react-native';
 import Icon, {SvgIconNameProps} from '../../../assets/svgs';
-import {appColors} from '../../../constants/appColors';
-import {fontFamilies} from '../../../constants/fontFamily';
-import {Scale, Spacing} from '../../../utils';
+import {appColors} from '../../../../common/constants/appColors';
+import {fontFamilies} from '../../../../common/constants/fontFamily';
+import {Scale, Spacing} from '../../../../common/utils';
 import Row from '../Row';
 import TextComponent from '../TextComponent';
 

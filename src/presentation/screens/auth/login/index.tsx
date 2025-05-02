@@ -7,10 +7,10 @@ import {
   TextComponent,
 } from '../../../components/share';
 import InputComponent from '../../../components/share/input/InputComponent';
-import {appColors} from '../../../constants/appColors';
-import {WIDTH} from '../../../constants/dimensions';
-import {fontFamilies} from '../../../constants/fontFamily';
-import {Spacing} from '../../../utils';
+import {appColors} from '../../../../common/constants/appColors';
+import {WIDTH} from '../../../../common/constants/dimensions';
+import {fontFamilies} from '../../../../common/constants/fontFamily';
+import {Spacing} from '../../../../common/utils';
 import useLoginController from './controller';
 
 const WIDTH_BUTTON = WIDTH * 0.75;

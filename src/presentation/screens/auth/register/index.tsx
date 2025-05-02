@@ -7,11 +7,11 @@ import {
   TextComponent,
 } from '../../../components/share';
 import InputComponent from '../../../components/share/input/InputComponent';
-import {appColors} from '../../../constants/appColors';
-import {WIDTH} from '../../../constants/dimensions';
-import {fontFamilies} from '../../../constants/fontFamily';
-import {SCREEN_NAME} from '../../../constants/screen-name';
-import {Spacing} from '../../../utils';
+import {appColors} from '../../../../common/constants/appColors';
+import {WIDTH} from '../../../../common/constants/dimensions';
+import {fontFamilies} from '../../../../common/constants/fontFamily';
+import {SCREEN_NAME} from '../../../../common/constants/screen-name';
+import {Spacing} from '../../../../common/utils';
 import {useRegisterController} from './controller';
 
 const WIDTH_BUTTON = WIDTH * 0.75;

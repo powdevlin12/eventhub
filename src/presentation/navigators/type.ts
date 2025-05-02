@@ -1,4 +1,4 @@
-import {SCREEN_NAME} from '../constants/screen-name';
+import {SCREEN_NAME} from '../../common/constants/screen-name';
 
 export type AuthNavigationParamsList = {
   [SCREEN_NAME.LOGIN_SCREEN]: undefined;

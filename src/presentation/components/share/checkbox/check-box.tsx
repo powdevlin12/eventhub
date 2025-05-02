@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Icon from '../../../assets/svgs';
-import {Spacing} from '../../../utils';
+import {Spacing} from '../../../common/utils';
 
 const CheckBox = () => {
   return (

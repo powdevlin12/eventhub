@@ -1,5 +1,5 @@
 import {SvgProps} from 'react-native-svg';
-import {Scale} from '../../utils';
+import {Scale} from '../../../common/utils';
 import Mail from './mail.svg';
 import Hidden from './hidden.svg';
 import Password from './password.svg';

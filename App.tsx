@@ -17,22 +17,17 @@ import './gesture-handler';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {ACCESS_TOKEN} from './src/constants/appKey';
-import AuthNavigator from './src/navigators/AuthNavigator';
-import MainNavigator from './src/navigators/MainNavigator';
-import {SplashScreen} from './src/screens';
-import {getDataAsyncStorage} from './src/utils/async-storage';
-import codePush from 'react-native-code-push';
+import {ACCESS_TOKEN} from './src/common/constants/appKey';
+import AuthNavigator from './src/presentation/navigators/AuthNavigator';
+import MainNavigator from './src/presentation/navigators/MainNavigator';
+import {SplashScreen} from './src/presentation/screens';
+import {getDataAsyncStorage} from './src/common/utils/async-storage';
 import {QueryClientProvider} from '@tanstack/react-query';
-import {queryClient} from './src/api/hooks';
+import {queryClient} from './src/data/api/hooks';
 import {Provider} from 'react-redux';
-import {store} from './src/store';
+import {store} from './src/data/store';
 
 const {HelloYt} = NativeModules;
-
-const codePushOptions = {
-  checkFrenquency: codePush.CheckFrequency.ON_APP_START,
-};
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -74,21 +69,6 @@ function App(): JSX.Element {
     checkLogin();
   }, []);
 
-  // ** handle code push
-
-  useEffect(() => {
-    codePush.sync({
-      updateDialog: {
-        title: 'New version',
-        optionalIgnoreButtonLabel: 'Cancel',
-        optionalInstallButtonLabel: 'Install',
-        optionalUpdateMessage: 'New version available',
-      },
-      installMode: codePush.InstallMode.IMMEDIATE,
-    });
-  }, []);
-  // ** end handle code push
-
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar
@@ -112,4 +92,4 @@ function App(): JSX.Element {
   );
 }
 
-export default codePush(codePushOptions)(App);
+export default App;

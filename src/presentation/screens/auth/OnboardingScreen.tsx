@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {Row, TextComponent} from '../../components/share';
-import {appColors} from '../../constants/appColors';
-import {appInfo} from '../../constants/appInfos';
-import {gStyle} from '../../styles/globalStyles';
+import {appColors} from '../../../common/constants/appColors';
+import {appInfo} from '../../../common/constants/appInfos';
 import {useNavigation} from '@react-navigation/native';
-import {Spacing} from '../../utils';
+import {Spacing} from '../../../common/utils';
+import {gStyle} from '../../styles/globalStyles';
 
 const OnboardingScreen = () => {
   const [index, setIndex] = useState(0);
