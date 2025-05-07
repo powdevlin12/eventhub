@@ -18,6 +18,7 @@ const TextComponent = ({
   fontfamily = fontFamilies.regular,
   fullWidth = false,
   center = 'left',
+  style: styleText,
   ...rest
 }: TextComponentProps) => {
   const styles = StyleSheet.create({
@@ -31,7 +32,7 @@ const TextComponent = ({
   });
 
   return (
-    <Text style={styles.text} {...rest}>
+    <Text style={[styles.text, styleText]} {...rest}>
       {rest.children}
     </Text>
   );

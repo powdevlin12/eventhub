@@ -38,6 +38,7 @@ const InputComponent = <T extends FieldValues>({
   control,
   value,
   onChange,
+  style,
   ...rest
 }: InputComponentProps<T>) => {
   if (!control) {
@@ -62,7 +63,7 @@ const InputComponent = <T extends FieldValues>({
         })}
         {/* @ts-ignore */}
         <TextInput
-          style={styles.input}
+          style={[styles.input, style]}
           placeholderTextColor={appColors.gray}
           selectionColor="gray"
           onChangeText={onChange}

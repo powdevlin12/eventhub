@@ -16,4 +16,8 @@ export class TodoRepositoryImpl implements TodoRepository {
   async toggleTodo(id: string): Promise<void> {
     return this.dataSource.toggleTodo(id);
   }
+
+  async deleteTodo(id: string): Promise<void> {
+    return this.dataSource.deleteTodo(id);
+  }
 }

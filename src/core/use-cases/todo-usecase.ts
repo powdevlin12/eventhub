@@ -15,4 +15,8 @@ export class TodoUseCases {
   async toggleTodo(id: string): Promise<void> {
     return this.repository.toggleTodo(id);
   }
+
+  async deleteTodo(id: string): Promise<void> {
+    return this.repository.deleteTodo(id);
+  }
 }
