@@ -3,6 +3,7 @@ import React from 'react';
 import {AuthNavigationParamsList} from './type';
 import {LoginScreen, OnboardingScreen} from '@presentation/screens';
 import Register from '@presentation/screens/auth/register';
+import LoginScreenV2 from '@presentation/screens/auth/login/login-screen-v2';
 
 const AuthNavigator = () => {
   const Stack = createNativeStackNavigator<AuthNavigationParamsList>();
@@ -12,7 +13,7 @@ const AuthNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreenV2} />
       <Stack.Screen name="RegisterScreen" component={Register} />
       <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
     </Stack.Navigator>

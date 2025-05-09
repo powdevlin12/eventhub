@@ -8,6 +8,7 @@
 import React, {useEffect, useState} from 'react';
 import {
   NativeModules,
+  Platform,
   SafeAreaView,
   StatusBar,
   useColorScheme,
@@ -15,8 +16,11 @@ import {
 } from 'react-native';
 import './gesture-handler';
 
+import {appColors} from '@common/constants/appColors';
+import {Scale} from '@common/utils';
 import {NavigationContainer} from '@react-navigation/native';
 import {QueryClientProvider} from '@tanstack/react-query';
+import 'react-native-gesture-handler';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Provider} from 'react-redux';
 import {ACCESS_TOKEN} from './src/common/constants/appKey';
@@ -26,7 +30,6 @@ import AuthNavigator from './src/presentation/navigators/AuthNavigator';
 import MainNavigator from './src/presentation/navigators/MainNavigator';
 import {SplashScreen} from './src/presentation/screens';
 import {store} from './src/presentation/store';
-import 'react-native-gesture-handler';
 
 const {HelloYt} = NativeModules;
 
@@ -70,26 +73,39 @@ function App(): JSX.Element {
     checkLogin();
   }, []);
 
+  const isIos = Platform.OS === 'ios';
+  const Container = isIos ? View : SafeAreaView;
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <StatusBar
-        barStyle={'dark-content'}
-        translucent
-        backgroundColor={'transparent'}
-      />
-      <View style={{height: StatusBar.currentHeight, width: '100%'}} />
+    <Container style={{flex: 1}}>
+      {isIos ? (
+        <View
+          style={{
+            height: Scale(48),
+            backgroundColor: appColors.bgPrimary,
+          }}
+        />
+      ) : (
+        <StatusBar
+          animated
+          hidden={false}
+          barStyle={'light-content'}
+          translucent={false}
+          backgroundColor={appColors.bgPrimary}
+        />
+      )}
       {isShowSplash ? (
         <SplashScreen />
       ) : (
         <QueryClientProvider client={queryClient}>
           <NavigationContainer>
             <Provider store={store}>
-              {!accessToken ? <MainNavigator /> : <AuthNavigator />}
+              {accessToken ? <MainNavigator /> : <AuthNavigator />}
             </Provider>
           </NavigationContainer>
         </QueryClientProvider>
       )}
-    </SafeAreaView>
+    </Container>
   );
 }
 

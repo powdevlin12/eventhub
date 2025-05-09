@@ -1,17 +1,13 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-import {
-  ButtonComponent,
-  Row,
-  ScreenComponent,
-  TextComponent,
-} from '../../../components/share';
-import InputComponent from '../../../components/share/input/InputComponent';
-import {appColors} from '../../../../common/constants/appColors';
-import {WIDTH} from '../../../../common/constants/dimensions';
-import {fontFamilies} from '../../../../common/constants/fontFamily';
-import {Spacing} from '../../../../common/utils';
+
 import useLoginController from './controller';
+import { ButtonComponent, Row, ScreenComponent, TextComponent } from '@presentation/components/share';
+import { Spacing } from '@common/utils';
+import InputComponent from '@presentation/components/share/input/InputComponent';
+import { fontFamilies } from '@common/constants/fontFamily';
+import { appColors } from '@common/constants/appColors';
+import { WIDTH } from '@common/constants/dimensions';
 
 const WIDTH_BUTTON = WIDTH * 0.75;
 

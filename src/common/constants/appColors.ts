@@ -4,6 +4,12 @@ export const appColors = {
   text: '#120D26',
   gray: '#A1A1A1FF',
   grayStart: '#DADADA',
-  errorStart: '#E94E4E',
+  errorStart: '#E94E4EFF',
   errorEnd: '#DF1616',
+  bgPrimary: '#000000',
+  textPrimary: '#DFDFDF',
+  textSecondary: '#73767B',
+  disable: '#787878',
+  textDisable: '#393939',
+  border: '#353535',
 };

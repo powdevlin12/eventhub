@@ -13,7 +13,7 @@ export type TextComponentProps = {
 } & TextProps;
 
 const TextComponent = ({
-  color = appColors.text,
+  color = appColors.textPrimary,
   size = 16,
   fontfamily = fontFamilies.regular,
   fullWidth = false,

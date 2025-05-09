@@ -29,6 +29,12 @@ interface InputComponentProps<T extends FieldValues> extends TextInputProps {
   name?: FieldPath<T>;
   value?: string;
   onChange?: () => void;
+  border?: {
+    borderRadius?: number;
+    borderWidth?: number;
+    borderWidthBottom?: number;
+  };
+  isOnlyBorderBottom?: boolean;
 }
 
 const InputComponent = <T extends FieldValues>({
@@ -39,12 +45,20 @@ const InputComponent = <T extends FieldValues>({
   value,
   onChange,
   style,
+  border,
   ...rest
 }: InputComponentProps<T>) => {
   if (!control) {
     return (
       <Row
-        styles={styles.container}
+        styles={[
+          styles.container,
+          {
+            borderRadius: border?.borderRadius ?? Scale(12),
+            borderWidth: border?.borderWidth ?? 1,
+            borderBottomWidth: border?.borderWidthBottom ?? 1,
+          },
+        ]}
         alignContent="center"
         justifyContent="center">
         {/* @ts-ignore */}
@@ -163,14 +177,12 @@ export default InputComponent;
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: '#E4DFDF',
-    borderRadius: Scale(12),
+    borderColor: appColors.border,
     height: Scale(56),
   },
   input: {
     flex: 1,
     fontFamily: fontFamilies.regular,
-    fontSize: Scale(14),
+    fontSize: Scale(16),
   },
 });
