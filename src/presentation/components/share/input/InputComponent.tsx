@@ -14,7 +14,8 @@ import {Scale, Spacing} from '../../../../common/utils';
 import Row from '../Row';
 import TextComponent from '../TextComponent';
 
-interface InputComponentProps<T extends FieldValues> extends TextInputProps {
+export interface InputComponentProps<T extends FieldValues>
+  extends TextInputProps {
   prefixes?: {
     iconName: SvgIconNameProps;
     size?: number;

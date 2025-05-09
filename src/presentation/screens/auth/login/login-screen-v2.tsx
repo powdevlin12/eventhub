@@ -11,20 +11,20 @@ import {
 import InputComponent from '@presentation/components/share/input/InputComponent';
 import ScreenV2Component from '@presentation/components/share/screen-v2-component';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import useLoginV2Controller from './controller-v2';
-
-const CONTENT = {
-  intro:
-    'Để bắt đầu, trước tiên hãy nhập số điện thoại, email hoặc @tên người dùng của bạn',
-  placeholder: 'Số điện thoại, email hoặc tên người dùng',
-};
+import {CONTENT} from '@common/constants/content';
+import InputPassword from '@presentation/components/share/input/input-password';
 
 const LoginScreenV2 = () => {
   const {
-    values: {username},
-    actions: {handleSetUsername},
+    values: {username, keyboardHeight, isPressedContinue, password},
+    actions: {handleSetUsername, handlePressContinue, handleSetPassword},
   } = useLoginV2Controller();
+
+  console.log({
+    keyboardHeight,
+  });
 
   return (
     <ScreenV2Component>
@@ -46,7 +46,15 @@ const LoginScreenV2 = () => {
           value={username}
           onChangeText={handleSetUsername}
           style={{color: appColors.white}}
+          editable={!isPressedContinue}
         />
+        <SpaceComponent height={8} />
+        {isPressedContinue && (
+          <InputPassword
+            password={password}
+            handleSetPassword={handleSetPassword}
+          />
+        )}
       </View>
       <Row
         styles={{paddingHorizontal: Spacing(8)}}
@@ -59,8 +67,8 @@ const LoginScreenV2 = () => {
           Quên mật khẩu?
         </TextComponent>
         <ButtonComponent
-          label="Tiếp theo"
-          onPress={() => {}}
+          label={isPressedContinue ? CONTENT.login : CONTENT.continue}
+          onPress={handlePressContinue}
           width={wp('30%')}
           bgColor={username ? appColors.white : appColors.disable}
           color={username ? appColors.text : appColors.textDisable}
@@ -69,7 +77,9 @@ const LoginScreenV2 = () => {
           paddingVerticalBtn={2.5}
         />
       </Row>
-      <SpaceComponent height={8} />
+      <SpaceComponent
+        height={8 + (Platform.OS === 'ios' ? keyboardHeight : 0)}
+      />
     </ScreenV2Component>
   );
 };
