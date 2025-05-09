@@ -1,5 +1,22 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "include": ["src/**/*", "./.eslintrc.cjs", "./index.js", "declarations.d.ts"],
-  "exclude": ["node_modules", "**/node_modules"]
+  "exclude": ["node_modules", "**/node_modules"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@core/*": ["core/*"],
+      "@data/*": ["data/*"],
+      "@di/*": ["di/*"],
+      "@presentation/*": ["presentation/*"],
+      "@assets/*": ["presentation/assets/*"],
+      "@components/*": ["presentation/components/*"],
+      "@navigators/*": ["presentation/navigators/*"],
+      "@screens/*": ["presentation/screens/*"],
+      "@store/*": ["presentation/store/*"],
+      "@store_mobx/*": ["presentation/store_mobx/*"],
+      "@styles/*": ["presentation/styles/*"]
+    }
+  }
 }

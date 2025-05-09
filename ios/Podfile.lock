@@ -379,8 +379,7 @@ PODS:
   - RNFlashList (1.8.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
-  - RNGestureHandler (2.25.0):
-    - RCT-Folly (= 2021.07.22.00)
+  - RNGestureHandler (2.9.0):
     - React-Core
   - RNReanimated (2.17.0):
     - DoubleConversion
@@ -409,10 +408,9 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.37.0):
+  - RNScreens (3.27.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
-    - React-RCTImage
   - RNSVG (15.7.1):
     - React-Core
   - Yoga (1.14.0)
@@ -610,9 +608,9 @@ SPEC CHECKSUMS:
   ReactCommon: 275d65c190ade0b51c713c277ba52c9c78b3d914
   RNCAsyncStorage: b9f5f78da5d16a853fe3dc22e8268d932fc45a83
   RNFlashList: 792522d165619442580ef8f16698ad21175b1136
-  RNGestureHandler: c2358951aa4fe5a9ee2085b3c2880c1af98af269
+  RNGestureHandler: 5fe9e4f847b51d8cc9006cec6c7dc6718dd82809
   RNReanimated: f9f8945aad05d259324869fb79ce30b75c6062da
-  RNScreens: c1a851e518284641160aa5af4894479773a6e719
+  RNScreens: c04e015e917ce64d0983974d8efb8fa1dc1ddc56
   RNSVG: 38b927ba26d717c85522fbf9a04b87dcd2d8227a
   Yoga: 065f0b74dba4832d6e328238de46eb72c5de9556
 

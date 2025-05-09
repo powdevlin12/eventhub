@@ -56,7 +56,7 @@ const TodoScreen = observer(() => {
     <ScreenComponent>
       <View style={styles.container}>
         <TextComponent size={26} fullWidth fontfamily={fontFamilies.bold}>
-          Todo
+          Todos
         </TextComponent>
         <SpaceComponent height={12} />
         <Row alignContent="center">
