@@ -9,6 +9,9 @@ import TextComponent, {TextComponentProps} from '../TextComponent';
 type ButtonComponentProps = {
   type?: 'outline' | 'inside';
   label: string;
+  bgColor?: string;
+  radius?: number;
+  paddingVerticalBtn?: number;
 
   prefix?: {
     iconName: SvgIconNameProps;
@@ -32,14 +35,18 @@ const ButtonComponent = ({
   type = 'inside',
   width,
   onPress,
+  bgColor,
   loading = false,
+  paddingVerticalBtn,
+  radius,
   ...rest
 }: ButtonComponentProps) => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: type === 'outline' ? appColors.white : appColors.primary,
-      borderRadius: Scale(15),
-      paddingVertical: Spacing(4),
+      backgroundColor:
+        bgColor ?? (type === 'outline' ? appColors.white : appColors.primary),
+      borderRadius: Scale(radius ?? 16),
+      paddingVertical: Spacing(paddingVerticalBtn ?? 3),
       width: width ?? '100%',
       alignSelf: 'center',
       borderWidth: type === 'inside' ? 0 : 1,
@@ -70,7 +77,10 @@ const ButtonComponent = ({
         )}
         {!loading ? (
           <TextComponent
-            color={type === 'inside' ? appColors.white : appColors.text}
+            color={
+              rest.color ??
+              (type === 'inside' ? appColors.white : appColors.text)
+            }
             {...rest}>
             {label}
           </TextComponent>

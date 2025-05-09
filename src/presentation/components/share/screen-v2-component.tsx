@@ -9,17 +9,23 @@ import TextComponent from './TextComponent';
 import Column from './column';
 import {Spacing} from '@common/utils';
 import SpaceComponent from '../SpaceComponent';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface ScreenV2ComponentProps {
   children: ReactNode;
+  onPressLeftAction?: () => void;
 }
 
 const sizeLogo = hp('4%');
 
-const ScreenV2Component = ({children}: ScreenV2ComponentProps) => {
+const ScreenV2Component = ({
+  children,
+  onPressLeftAction,
+}: ScreenV2ComponentProps) => {
+  const {top, bottom} = useSafeAreaInsets();
   return (
     <View style={styles.container}>
-      <SpaceComponent height={Spacing(4)} />
+      <SpaceComponent height={Platform.OS === 'ios' ? top + 8 : 16} />
       <Row
         justifyContent="center"
         alignContent="center"
@@ -27,7 +33,8 @@ const ScreenV2Component = ({children}: ScreenV2ComponentProps) => {
         <Column
           align="center"
           justify="center"
-          style={{position: 'absolute', left: Spacing(4), bottom: 0, top: 0}}>
+          style={{position: 'absolute', left: Spacing(4), bottom: 0, top: 0}}
+          onPress={() => onPressLeftAction?.()}>
           <TextComponent size={18} fontfamily={fontFamilies.bold}>
             Huỷ
           </TextComponent>
@@ -36,7 +43,7 @@ const ScreenV2Component = ({children}: ScreenV2ComponentProps) => {
         <View />
       </Row>
       <View style={styles.content}>{children}</View>
-      {Platform.OS === 'ios' && <SpaceComponent height={20} />}
+      {Platform.OS === 'ios' && <SpaceComponent height={bottom} />}
     </View>
   );
 };
