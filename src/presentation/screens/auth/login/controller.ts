@@ -5,10 +5,8 @@ import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
 import useToggleShowPassword from '../../../../common/hooks/useToggleShowPassword';
 import {AuthNavigationParamsList} from '../../../navigators/type';
-import {usePost} from '../../../../data/api/hooks';
-import {LoginPost} from '../../../../data/api/types';
-import {API_ROUTE} from '../../../../data/api/client';
 import {SCREEN_NAME} from '../../../../common/constants/screen-name';
+import {useLoginUseCase} from '../../../../core/use-cases/login-usecase';
 
 export const schemaLogin = yup.object({
   username: yup.string().required('Vui lòng nhập email của bạn'),
@@ -25,6 +23,7 @@ export type LoginNavigationProps = StackNavigationProp<
 const useLoginController = () => {
   const navigation = useNavigation<LoginNavigationProps>();
   const {handleToggleShowPassword, isShowPassword} = useToggleShowPassword();
+  const {login, isLoading} = useLoginUseCase();
 
   const formLogin = useForm<TFormLogin>({
     resolver: yupResolver(schemaLogin) as any,
@@ -34,17 +33,18 @@ const useLoginController = () => {
     },
   });
 
-  const {mutate: mutateLogin, isPending} = usePost<LoginPost>(API_ROUTE.LOGIN);
-
   const onSubmit = (data: TFormLogin) => {
-    mutateLogin(
-      {email: data.username, password: data.password},
+    login(
       {
-        onError(error) {
+        email: data.username,
+        password: data.password,
+      },
+      {
+        onError: error => {
           console.log(error.message);
         },
-        onSuccess(d) {
-          console.log(d);
+        onSuccess: data => {
+          console.log(data);
         },
       },
     );
@@ -57,7 +57,7 @@ const useLoginController = () => {
   return {
     values: {
       isShowPassword,
-      isPending,
+      isPending: isLoading,
     },
     actions: {
       handleToggleShowPassword,

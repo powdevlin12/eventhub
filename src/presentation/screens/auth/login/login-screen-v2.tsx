@@ -22,10 +22,6 @@ const LoginScreenV2 = () => {
     actions: {handleSetUsername, handlePressContinue, handleSetPassword},
   } = useLoginV2Controller();
 
-  console.log({
-    keyboardHeight,
-  });
-
   return (
     <ScreenV2Component>
       <View style={styles.container}>
@@ -70,8 +66,8 @@ const LoginScreenV2 = () => {
           label={isPressedContinue ? CONTENT.login : CONTENT.continue}
           onPress={handlePressContinue}
           width={wp('30%')}
-          bgColor={username ? appColors.white : appColors.disable}
-          color={username ? appColors.text : appColors.textDisable}
+          bgColor={username && password ? appColors.white : appColors.disable}
+          color={username && password ? appColors.text : appColors.textDisable}
           fontfamily={fontFamilies.bold}
           radius={28}
           paddingVerticalBtn={2.5}
