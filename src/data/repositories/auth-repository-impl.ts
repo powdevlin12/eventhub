@@ -1,18 +1,26 @@
-import {LoginCredentials, LoginResponse} from '../../core/entities/auth';
-import {AuthRepository} from '../../core/repositories/auth-repository';
-import {API_ROUTE} from '../api/client';
-import {usePost} from '../api/hooks';
+import {LoginCredentials} from '@core/entities/auth';
+import {LoginResponse} from '@core/entities/auth';
+import {AuthRepository} from '@core/repositories/auth-repository';
+import {API_ROUTE} from '@data/api/client';
+import {usePost} from '@data/api/hooks';
+import {AuthLocalDataSource} from '@data/datasources/auth-local-data-source';
 
-// Custom hook to use auth repository with React hooks
-export const useAuthRepository = (): AuthRepository => {
-  const {mutateAsync: loginMutate} = usePost<LoginResponse>(API_ROUTE.LOGIN);
+export class AuthRepositoryImpl implements AuthRepository {
+  private readonly loginMutate = usePost<LoginResponse>(API_ROUTE.LOGIN);
+  constructor(private readonly localDataSource: AuthLocalDataSource) {}
 
-  return {
-    login: async (credentials: LoginCredentials): Promise<LoginResponse> => {
-      return loginMutate({
+  login = async (credentials: LoginCredentials): Promise<LoginResponse> => {
+    return this.loginMutate
+      .mutateAsync({
         email: credentials.email,
         password: credentials.password,
+      })
+      .then(response => {
+        this.localDataSource.setAccessToken(
+          response.accessToken,
+          response.refreshToken,
+        );
+        return response;
       });
-    },
   };
-};
+}

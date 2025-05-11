@@ -1,13 +1,16 @@
 import {useKeyboard} from '@common/hooks/use-keyboard';
+import {authUseCases} from '@di/auth.di';
+
 import {useState} from 'react';
+import {Alert} from 'react-native';
 
 const useLoginV2Controller = () => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('trandat1@gmail.com');
   const handleSetUsername = (usernameArg: string) => {
     setUsername(usernameArg);
   };
 
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('Sgod123@');
   const handleSetPassword = (passwordArg: string) => {
     setPassword(passwordArg);
   };
@@ -18,6 +21,27 @@ const useLoginV2Controller = () => {
   };
 
   const keyboardHeight = useKeyboard();
+
+  const onSubmit = () => {
+    if (!username || !password) {
+      Alert.alert('Vui lòng nhập email và mật khẩu');
+      return;
+    }
+    authUseCases.login(
+      {
+        email: username,
+        password: password,
+      },
+      {
+        onError: error => {
+          console.log(error.message);
+        },
+        onSuccess: data => {
+          console.log(data);
+        },
+      },
+    );
+  };
 
   return {
     values: {
@@ -30,6 +54,7 @@ const useLoginV2Controller = () => {
       handleSetUsername,
       handlePressContinue,
       handleSetPassword,
+      onSubmit,
     },
     refs: {},
   };

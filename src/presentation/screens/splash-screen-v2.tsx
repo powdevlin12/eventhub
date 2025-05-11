@@ -1,5 +1,6 @@
 import {appColors} from '@common/constants/appColors';
 import {appInfo} from '@common/constants/appInfos';
+import {IMAGES} from '@presentation/assets/images';
 import {SpaceComponent} from '@presentation/components';
 import React from 'react';
 import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
@@ -8,7 +9,7 @@ const SplashScreenV2 = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/x-logo.png')}
+        source={IMAGES.xLogo}
         style={{
           width: appInfo.sizes.WIDTH * 0.3,
           height: appInfo.sizes.WIDTH * 0.3,

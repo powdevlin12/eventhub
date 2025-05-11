@@ -19,7 +19,12 @@ import InputPassword from '@presentation/components/share/input/input-password';
 const LoginScreenV2 = () => {
   const {
     values: {username, keyboardHeight, isPressedContinue, password},
-    actions: {handleSetUsername, handlePressContinue, handleSetPassword},
+    actions: {
+      handleSetUsername,
+      handlePressContinue,
+      handleSetPassword,
+      onSubmit,
+    },
   } = useLoginV2Controller();
 
   return (
@@ -64,7 +69,7 @@ const LoginScreenV2 = () => {
         </TextComponent>
         <ButtonComponent
           label={isPressedContinue ? CONTENT.login : CONTENT.continue}
-          onPress={handlePressContinue}
+          onPress={isPressedContinue ? onSubmit : handlePressContinue}
           width={wp('30%')}
           bgColor={
             isPressedContinue && !password ? appColors.disable : appColors.white
