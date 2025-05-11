@@ -30,6 +30,7 @@ import AuthNavigator from './src/presentation/navigators/AuthNavigator';
 import MainNavigator from './src/presentation/navigators/MainNavigator';
 import {SplashScreen} from './src/presentation/screens';
 import {store} from './src/presentation/store';
+import SplashScreenV2 from '@presentation/screens/splash-screen-v2';
 
 const {HelloYt} = NativeModules;
 
@@ -95,7 +96,7 @@ function App(): JSX.Element {
         />
       )}
       {isShowSplash ? (
-        <SplashScreen />
+        <SplashScreenV2 />
       ) : (
         <QueryClientProvider client={queryClient}>
           <NavigationContainer>

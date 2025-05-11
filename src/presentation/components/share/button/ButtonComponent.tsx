@@ -26,6 +26,7 @@ type ButtonComponentProps = {
   width?: number;
   onPress: () => void;
   loading?: boolean;
+  disableBtn?: boolean;
 } & TextComponentProps;
 
 const ButtonComponent = ({
@@ -39,6 +40,7 @@ const ButtonComponent = ({
   loading = false,
   paddingVerticalBtn,
   radius,
+  disableBtn = false,
   ...rest
 }: ButtonComponentProps) => {
   const styles = StyleSheet.create({
@@ -68,7 +70,10 @@ const ButtonComponent = ({
     },
   });
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      disabled={disableBtn}>
       <Row justifyContent="center">
         {prefix && (
           <TouchableOpacity style={styles.prefix} onPress={prefix?.onPress}>
